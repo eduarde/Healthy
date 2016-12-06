@@ -10,7 +10,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = UserProfile
-
+		fields = '__all__'
 
 
 
@@ -36,7 +36,8 @@ class LabResultSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = LabResult
-
+		fields = '__all__'
+		lookup_field = 'lab_ref'
 
 
 
@@ -54,6 +55,7 @@ class DictionarySerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = Dictionary
+		fields = '__all__'
 
 
 

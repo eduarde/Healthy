@@ -178,7 +178,7 @@ class MarkerPredefined(models.Model):
 
 
 class LabResult(models.Model):
-	user_ref = models.ForeignKey('auth.User')
+	
 	lab_ref = models.ForeignKey(Lab, related_name="Lab_ref")
 	marker_ref = models.ForeignKey(Marker, related_name="Marker_LabResults_ref", verbose_name="Marker")
 	predefined_ref = models.ForeignKey(MarkerPredefined ,related_name="MarkerPredefined_LabResults_ref")
