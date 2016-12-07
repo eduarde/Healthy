@@ -14,11 +14,15 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
 
 
+
+
 class LabSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = Lab
 		fields = ('user', 'date', 'ref_number', 'doctor', 'collection_point', 'patient_code', 'user_age_lab', 'abnormal_lab')
+
+
 
 
 
@@ -37,7 +41,7 @@ class LabResultSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = LabResult
 		fields = '__all__'
-		lookup_field = 'lab_ref'
+
 
 
 
@@ -56,6 +60,8 @@ class DictionarySerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Dictionary
 		fields = '__all__'
+
+
 
 
 

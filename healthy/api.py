@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
 
+
 from django.shortcuts import get_object_or_404
 from .serializers import UserProfileSerializer, LabSerializer, MarkerSerializer, LabResultSerializer, MarkerPredefinedSerializer, DictionarySerializer, LabNoteSerializer
 from .models import UserProfile, Lab, Marker, LabResult, MarkerPredefined, Dictionary, LabNote
@@ -53,14 +54,12 @@ class LabResultViewSet(viewsets.ModelViewSet):
 	serializer_class = LabResultSerializer
 	authentication_classes = (SessionAuthentication, BasicAuthentication)
 	permission_classes = (IsAuthenticated,)
-	# lookup_field = 'lab_ref'
 
 	def get_lab(self):
-	 	return get_object_or_404(Lab, pk=self.kwargs.get("pk"))
+		return get_object_or_404(Lab, pk=self.kwargs.get("lab"))
 
 	def get_queryset(self):
-		return LabResult.objects.all()
-	#	return LabResult.objects.all().filter(lab_ref=self.get_lab())
+		return LabResult.objects.all().filter(lab_ref=self.get_lab())
 
 
 
