@@ -18,7 +18,7 @@ class LabSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = Lab
-		fields = '__all__'
+		fields = ('user', 'date', 'ref_number', 'doctor', 'collection_point', 'patient_code', 'user_age_lab', 'abnormal_lab')
 
 
 

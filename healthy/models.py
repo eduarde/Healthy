@@ -51,17 +51,22 @@ class Lab(models.Model):
 	collection_point = models.CharField('Collection point', max_length=500, blank=True, null=True)
 	patient_code = models.IntegerField('Patient Code', blank=False,null=True)
 
-	def contains_abnormal_lab(self):
-		labResults = LabResults.objects.filter(lab_ref__pk=self.pk)
+	def check_abnormal_lab(self):
+		labResults = LabResult.objects.filter(lab_ref__pk=self.pk)
 		for labResult in labResults:
 			if labResult.is_abnormal() == True:
 				return True
 		return False
 
-	def user_age_lab(self):
+	def get_user_age_lab(self):
 		born = UserProfile.objects.filter(user=self.user)[:1].get().dob
 		today = self.date
 		return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
+
+	user_age_lab = property(get_user_age_lab)
+	abnormal_lab = property(check_abnormal_lab)
+
+	
 
 	def __str__(self):
 		return 'Lab ' + str(self.ref_number)
