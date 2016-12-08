@@ -29,7 +29,7 @@ class LabTestCase(TestCase):
 
 	def test_lab_user_age_lab(self):
 		
-		lab = Lab.objects.get(ref_number="1236")
+		lab = Lab.objects.get(ref_number="1234")
 		self.assertEqual(lab.user_age_lab, self.expected_age_lab)
 
 	def test_lab_unique_ref_number(self):
