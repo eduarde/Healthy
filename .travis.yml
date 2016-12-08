@@ -10,13 +10,10 @@ env:
 # command to install dependencies  
 install:
 - pip install -r requirements.txt
-- pip install pep8
-
 
 
 # command to run tests
 script:
-- pep8 --exclude=migrations healthy
 - "python manage.py test"
 
 notifications:
