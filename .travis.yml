@@ -13,7 +13,7 @@ install:
 - pip install -r requirements.txt
 
 # command to run tests
-script: py.test
+script: python wef/manage.py test
 
 notifications:
   email:
