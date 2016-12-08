@@ -10,11 +10,14 @@ env:
 # command to install dependencies  
 install:
 - pip install -r requirements.txt
-- pip install -q Django==$DJANGO_VERSION
+- pip install pep8
+
 
 
 # command to run tests
-script: "python manage.py test"
+script:
+- pep8 --exclude=migrations healthy
+- "python manage.py test"
 
 notifications:
   email:
