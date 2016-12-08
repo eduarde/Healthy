@@ -46,7 +46,7 @@ class UserProfile(models.Model):
 class Lab(models.Model):
 	user = models.ForeignKey('auth.User', verbose_name='User', null=True)
 	date = models.DateField('Date',blank=False, null=True)
-	ref_number = models.IntegerField('Reference Number', blank=False,null=False)
+	ref_number = models.IntegerField('Reference Number', blank=False,null=False,unique=True)
 	doctor = models.CharField('Doctor', max_length=300, blank=True, null=True)
 	collection_point = models.CharField('Collection point', max_length=500, blank=True, null=True)
 	patient_code = models.IntegerField('Patient Code', blank=False,null=True)
