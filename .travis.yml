@@ -22,3 +22,6 @@ notifications:
       - eduard.erja@gmail.com
     on_success: always
     on_failure: always
+  slack:
+    rooms:
+      - edteamcerner:MBeDARMBGbbdENrkB5B2oipQ#healthy
