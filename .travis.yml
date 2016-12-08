@@ -1,0 +1,23 @@
+language: python
+python:
+  - "2.7"
+  - "3.2"
+  - "3.3"
+  - "3.4"
+
+env:
+  - DJANGO_VERSION=1.10.4
+
+# command to install dependencies  
+install: "pip install -r requirements.txt"
+
+  
+# command to run tests
+script: pytest
+
+notifications:
+  email:
+    recipients:
+      - eduard.erja@gmail.com
+    on_success: always
+    on_failure: always
