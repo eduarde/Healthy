@@ -37,11 +37,13 @@ class MarkerSerializer(serializers.ModelSerializer):
 
 
 
+	
 class LabResultSerializer(serializers.ModelSerializer):
+
 
 	class Meta:
 		model = LabResult
-		fields = '__all__'
+		fields = ( 'marker_ref', 'predefined_ref', 'value')
 
 
 

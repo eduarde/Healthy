@@ -29,9 +29,6 @@ class LabViewSet(viewsets.ModelViewSet):
 	authentication_classes = (SessionAuthentication, BasicAuthentication)
 	permission_classes = (IsAuthenticated,)
 
-	# def pre_save(self, obj):
-	# 	obj.user = self.request.user
-
 	def get_queryset(self):
 		return Lab.objects.all().filter(user=self.request.user).order_by('-pk')
 
@@ -54,6 +51,9 @@ class LabResultViewSet(viewsets.ModelViewSet):
 	serializer_class = LabResultSerializer
 	authentication_classes = (SessionAuthentication, BasicAuthentication)
 	permission_classes = (IsAuthenticated,)
+
+	def perform_create(self,serializer):
+		serializer.save(lab_ref=self.get_lab())
 
 	def get_lab(self):
 		return get_object_or_404(Lab, pk=self.kwargs.get("lab"))

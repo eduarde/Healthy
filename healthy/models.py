@@ -205,7 +205,7 @@ class MarkerPredefined(models.Model):
 	threshold_max = models.DecimalField('Max Value', default=0, max_digits=10, decimal_places=3, null=True)
 
 	def __str__(self):
-		return self.marker_ref.name + ' - ' + self.variant_gender + ' - ' +  variant_age
+		return self.marker_ref.name + ' - ' + self.variant_gender + ' - ' +  str(self.variant_age)
 
 
 
@@ -228,7 +228,7 @@ class LabResult(models.Model):
 		return False 
 
 	def __str__(self):
-		return 'LabResult ' + str(self.lab_ref)
+		return 'LabResult ' + '#' + str(self.pk) + ' ' + self.marker_ref.name + ' -- ' + str(self.lab_ref)
 
 
 
