@@ -17,6 +17,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
 
 class LabSerializer(serializers.ModelSerializer):
+	user = serializers.HiddenField(default=serializers.CurrentUserDefault())
 
 	class Meta:
 		model = Lab

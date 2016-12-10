@@ -29,8 +29,8 @@ class LabViewSet(viewsets.ModelViewSet):
 	authentication_classes = (SessionAuthentication, BasicAuthentication)
 	permission_classes = (IsAuthenticated,)
 
-	def pre_save(self, obj):
-		obj.user = self.request.user
+	# def pre_save(self, obj):
+	# 	obj.user = self.request.user
 
 	def get_queryset(self):
 		return Lab.objects.all().filter(user=self.request.user).order_by('-pk')
