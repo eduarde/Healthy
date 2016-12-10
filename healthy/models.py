@@ -171,12 +171,49 @@ class Marker(models.Model):
 
 
 class MarkerPredefined(models.Model):
+	FEMALE = 'Female'
+	MALE = 'Male'
+	CHILD = 'Child'
+	NA = 'N/A'
+
+	GENDER_CHOICES = (
+		(FEMALE, 'Female'),
+		(MALE, 'Male'),
+		(CHILD, 'Child'),
+		(NA, 'N/A'),
+	)
+
+	GENDER = 'Gender'
+	AGE = 'Age'
+	NONE = 'None'
+
+	VARIANT_TYPE = (
+
+		(GENDER, 'Gender'),
+		(AGE,'Age'),
+		(NONE, 'None'),
+
+	)
+
+	marker_ref = models.ForeignKey(Marker, related_name="Marker_MarkerPredefined_ref")
+	
+	variant_type = models.CharField('Variant Type', max_length=10, choices=VARIANT_TYPE, default=NONE)
+	variant_gender =  models.CharField('Gender', max_length=10, choices=GENDER_CHOICES, default=NA)
+	variant_age = models.IntegerField('Age', blank=False,null=False,default=0)
+
 	threshold_min = models.DecimalField('Min Value', default=0, max_digits=10, decimal_places=3, null=True)
 	threshold_max = models.DecimalField('Max Value', default=0, max_digits=10, decimal_places=3, null=True)
-	marker_ref = models.ForeignKey(Marker, related_name="Marker_MarkerPredefined_ref")
 
 	def __str__(self):
-		return self.marker_ref.name
+
+		if self.variant_type == self.GENDER:
+			return self.marker_ref.name + ' -  ' + self.variant_gender
+
+		if self.variant_type == self.AGE:
+			return self.marker_ref.name + ' > ' + self.variant_age
+
+
+		return self.marker_ref.name 
 
 
 
