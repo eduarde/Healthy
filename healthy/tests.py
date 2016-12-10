@@ -73,27 +73,46 @@ class LabResultTestCase(TestCase):
 
 class MarkerPredefinedTestCase(TestCase):
 	def setUp(self):
-		self.marker = Marker.objects.create(name="Leucocite", abbr="L", category="Hematologie", um="mm3")
-		self.marker_pred_normal = MarkerPredefined.objects.create(marker_ref=self.marker, threshold_min="10",threshold_max="20")
-		self.marker_pred_male = MarkerPredefined.objects.create(marker_ref=self.marker, threshold_min="20",threshold_max="30",variant_type="Gender", variant_gender="Male")
-		self.marker_pred_age = MarkerPredefined.objects.create(marker_ref=self.marker, threshold_min="15",threshold_max="30",variant_type="Age", variant_age="30")
+		self.marker_normal = Marker.objects.create(name="Leucocite", abbr="L", category="Hematologie", um="mm3")
+		self.marker_pred_normal = MarkerPredefined.objects.create(marker_ref=self.marker_normal, threshold_min="10",threshold_max="20")
+
+		lab_date = "2016-03-03"
+		user_dob = "2007-05-09"
+		self.user = User.objects.create(username='user_test')
+		self.userprofile = UserProfile.objects.create(user=self.user, gender="M", dob=user_dob, blood_type="Group A")
+		Lab.objects.create(user=self.user, date=lab_date, ref_number="1234", doctor="Doctor Test", collection_point="Hospital Test", patient_code="1234")
+		self.marker_child = Marker.objects.create(name="Leucocite", abbr="L", category="Hematologie", um="mm3",variant_type="Gender")
+		self.marker_pred_child = MarkerPredefined.objects.create(marker_ref=self.marker_child, threshold_min="5",threshold_max="10",variant_gender="Child")
+
+		self.marker_male = Marker.objects.create(name="Leucocite", abbr="L", category="Hematologie", um="mm3",variant_type="Gender")
+		self.marker_pred_male = MarkerPredefined.objects.create(marker_ref=self.marker_male, threshold_min="20",threshold_max="30", variant_gender="Male")
+
+		self.marker_age = Marker.objects.create(name="Leucocite", abbr="L", category="Hematologie", um="mm3",variant_type="Age")
+		self.marker_pred_age = MarkerPredefined.objects.create(marker_ref=self.marker_age, threshold_min="15",threshold_max="30", variant_age="30")
 
 	def test_marker_values_normal(self):
-		self.assertEqual(self.marker_pred_normal.variant_type,'None')
 		self.assertEqual(self.marker_pred_normal.variant_gender,'N/A')
 		self.assertEqual(self.marker_pred_normal.variant_age,0)
 		self.assertTrue(int(self.marker_pred_normal.threshold_min) > 9 )
 		self.assertTrue(int(self.marker_pred_normal.threshold_max) < 21 )
 
+	def test_marker_values_child(self):
+		gender = "N/A"
+		lab = Lab.objects.get(ref_number="1234")
+		if int(lab.user_age_lab) < 12:
+			gender = 'Child'
+		self.assertEqual(self.marker_pred_child.variant_gender,gender)
+		self.assertEqual(int(self.marker_pred_child.variant_age),0)
+		self.assertTrue(int(self.marker_pred_child.threshold_min) > 4 )
+		self.assertTrue(int(self.marker_pred_child.threshold_max) < 11 )	
+
 	def test_marker_values_male(self):
-		self.assertEqual(self.marker_pred_male.variant_type,'Gender')
 		self.assertEqual(self.marker_pred_male.variant_gender,'Male')
 		self.assertEqual(self.marker_pred_male.variant_age,0)
 		self.assertTrue(int(self.marker_pred_male.threshold_min) > 19 )
 		self.assertTrue(int(self.marker_pred_male.threshold_max) < 31 )
 
 	def test_marker_values_age(self):
-		self.assertEqual(self.marker_pred_age.variant_type,'Age')
 		self.assertEqual(self.marker_pred_age.variant_gender,'N/A')
 		self.assertEqual(int(self.marker_pred_age.variant_age),30)
 		self.assertTrue(int(self.marker_pred_age.threshold_min) > 14 )
