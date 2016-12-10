@@ -21,7 +21,7 @@ class LabSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = Lab
-		fields = ('user', 'date', 'ref_number', 'doctor', 'collection_point', 'patient_code', 'user_age_lab', 'abnormal_lab')
+		fields = ('pk', 'user', 'date', 'ref_number', 'doctor', 'collection_point', 'patient_code', 'user_age_lab', 'abnormal_lab')
 
 
 
@@ -43,7 +43,7 @@ class LabResultSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = LabResult
-		fields = ( 'marker_ref', 'predefined_ref', 'value')
+		fields = ( 'marker_ref', 'value','lab_ref','predefined_ref')
 
 
 

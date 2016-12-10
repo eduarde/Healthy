@@ -9,12 +9,12 @@ from datetime import date, timedelta
 
 
 class UserProfile(models.Model):
-	F = 'F'
-	M = 'M'
+	FEMALE = 'Female'
+	MALE = 'Male'
 
 	GENDER_CHOICES = (
-		(F, 'F'),
-		(M, 'M'),
+		(FEMALE, 'Female'),
+		(MALE, 'Male'),
 	)
 
 	N  = 'N'
@@ -31,8 +31,8 @@ class UserProfile(models.Model):
 		(N, 'N'),
 	)
 
-	user = models.ForeignKey('auth.User', unique=True)
-	gender = models.CharField(max_length=5, choices=GENDER_CHOICES, default=F)
+	user = models.ForeignKey('auth.User', unique=True,on_delete=models.CASCADE)
+	gender = models.CharField(max_length=10, choices=GENDER_CHOICES, default=FEMALE)
 	dob = models.DateField('Date of birth',null=True)
 	blood_type = models.CharField(max_length=10, choices=BLOOD_TYPES, default=N)
 
@@ -44,7 +44,7 @@ class UserProfile(models.Model):
 
 
 class Lab(models.Model):
-	user = models.ForeignKey('auth.User', verbose_name='User', null=True)
+	user = models.ForeignKey('auth.User', verbose_name='User', null=True, on_delete=models.CASCADE)
 	date = models.DateField('Date',blank=False, null=True)
 	ref_number = models.IntegerField('Reference Number', blank=False,null=False,unique=True)
 	doctor = models.CharField('Doctor', max_length=300, blank=True, null=True)
@@ -196,10 +196,12 @@ class MarkerPredefined(models.Model):
 		(NA, 'N/A'),
 	)
 
+	CHILD_AGE_THRESHOLD = 12
 
 	marker_ref = models.ForeignKey(Marker, related_name="Marker_MarkerPredefined_ref")
 	variant_gender =  models.CharField('Gender', max_length=10, choices=GENDER_CHOICES, default=NA)
 	variant_age = models.IntegerField('Age', blank=False,null=False,default=0)
+
 
 	threshold_min = models.DecimalField('Min Value', default=0, max_digits=10, decimal_places=3, null=True)
 	threshold_max = models.DecimalField('Max Value', default=0, max_digits=10, decimal_places=3, null=True)
@@ -213,7 +215,7 @@ class MarkerPredefined(models.Model):
 
 class LabResult(models.Model):
 	
-	lab_ref = models.ForeignKey(Lab, related_name="Lab_ref")
+	lab_ref = models.ForeignKey(Lab, related_name="Lab_ref",on_delete=models.CASCADE)
 	marker_ref = models.ForeignKey(Marker, related_name="Marker_LabResults_ref", verbose_name="Marker")
 	predefined_ref = models.ForeignKey(MarkerPredefined ,related_name="MarkerPredefined_LabResults_ref")
 	value = models.DecimalField('Value', default=0, max_digits=10, decimal_places=3, null=True)
@@ -235,7 +237,7 @@ class LabResult(models.Model):
 
 
 class LabNote(models.Model):
-	lab_ref = models.ForeignKey(Lab, related_name="Lab_LabNote_ref")
+	lab_ref = models.ForeignKey(Lab, related_name="Lab_LabNote_ref",on_delete=models.CASCADE)
 	comment = models.TextField('Comment')
 	pub_date = models.DateTimeField('date published')
 
