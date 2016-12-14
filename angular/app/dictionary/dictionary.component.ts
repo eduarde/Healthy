@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DictionaryService } from '../../services/dictionaryService'
+import { DictionaryService } from './dictionary.service'
 
 @Component({
   selector: 'dictionaries',
