@@ -40,8 +40,8 @@ class DictionaryViewSet(viewsets.ModelViewSet):
 	queryset = Dictionary.objects.all()
 	http_method_names = [u'get']
 	serializer_class = DictionarySerializer
-	authentication_classes = (SessionAuthentication, BasicAuthentication)
-	permission_classes = (IsAuthenticated,)
+	# authentication_classes = (SessionAuthentication, BasicAuthentication)
+	# permission_classes = (IsAuthenticated,)
 
 
 

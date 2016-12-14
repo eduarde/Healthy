@@ -53,8 +53,11 @@ __pycache__
 myvenv
 myenv
 db.sqlite3
+node_modules
 .DS_Store
 *.pyc
 *.pyc
 *.sqlite3
 *.pyc
+*.map
+*.js
