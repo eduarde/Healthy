@@ -1,0 +1,52 @@
+<div role="main" class="container">
+    
+    <br /><br />
+
+    <div class='row'>
+        <div class='col-md-12'>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+                <input type="text" [(ngModel)]='listFilter' class="form-control" placeholder="Search" aria-describedby="basic-addon1">
+            </div>
+        </div>
+
+    </div>
+    <hr>
+
+
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div *ngFor='let dictionary of dictionaries | dictionaryFilter:listFilter'>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                    <h4 class="panel-title">
+                        <div id="container">
+                            <div class="row">
+                                <div class="col-md-6"> {{ dictionary.marker_ref.name }} </div>
+                                <div class="col-md-3"> {{ dictionary.marker_ref.abbr }} </div>
+                                <div class="col-md-3"> {{ dictionary.marker_ref.category }} </div>
+                            </div>
+                        </div>
+                    </h4>
+                </div>
+
+                <div class="panel-body">
+                    <p>{{ dictionary.text }}</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+<hr><br />
+<aside class="bg-dark">
+    <div class="container text-center">
+        <div class="call-to-action">
+            <h2>DICTIONARY</h2>
+            <a href="#about" class="btn btn-default btn-xl sr-button page-scroll">Back to top</a>
+        </div>
+    </div>
+</aside>

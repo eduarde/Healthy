@@ -43,6 +43,7 @@ class MarkerSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = Marker
+		fields = ('name', 'abbr', 'category')
 
 
 
@@ -70,10 +71,11 @@ class MarkerPredefinedSerializer(serializers.ModelSerializer):
 
 
 class DictionarySerializer(serializers.ModelSerializer):
+	marker_ref = MarkerSerializer()
 
 	class Meta:
 		model = Dictionary
-		fields = '__all__'
+		fields = ('id','marker_ref','text')
 
 
 
