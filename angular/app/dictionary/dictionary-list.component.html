@@ -1,11 +1,11 @@
 <div role="main" class="container">
-    
-    <br /><br />
+
+    <br /><br /><br /><br />
 
     <div class='row'>
         <div class='col-md-12'>
-            <div class="input-group">
-                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon text-primary" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
                 <input type="text" [(ngModel)]='listFilter' class="form-control" placeholder="Search" aria-describedby="basic-addon1">
             </div>
         </div>
@@ -18,14 +18,16 @@
         <div *ngFor='let dictionary of dictionaries | dictionaryFilter:listFilter'>
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab">
-                    <h4 class="panel-title">
-                        <div id="container">
-                            <div class="row">
-                                <div class="col-md-6"> {{ dictionary.marker_ref.name }} </div>
-                                <div class="col-md-3"> {{ dictionary.marker_ref.abbr }} </div>
-                                <div class="col-md-3"> {{ dictionary.marker_ref.category }} </div>
+                    <h4 class="panel-title text-primary">
+                        <strong>
+                            <div id="container">
+                                <div class="row">
+                                    <div class="col-md-6"> {{ dictionary.marker_ref.name }} </div>
+                                    <div class="col-md-3"> {{ dictionary.marker_ref.abbr }} </div>
+                                    <div class="col-md-3"> {{ dictionary.marker_ref.category }} </div>
+                                </div>
                             </div>
-                        </div>
+                        </strong>
                     </h4>
                 </div>
 
@@ -34,9 +36,12 @@
                 </div>
 
             </div>
+            <br />
         </div>
 
+
     </div>
+
 
 
 </div>
