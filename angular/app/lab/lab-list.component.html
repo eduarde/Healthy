@@ -28,7 +28,7 @@
 
     <div class="list-group">
         <div class="lab" *ngFor='let lab of labs | labRefNumberFilter: listRefNumberFilter | labDateFilter: listDateFilter'>
-            <a href="#" class="list-group-item default">
+            <a [routerLink]="['/lab', lab.pk]" class="list-group-item default">
                 <h4 class="list-group-item-heading">
                     <div class="container">
                         <div class="row">
@@ -68,7 +68,7 @@
 <aside class="bg-dark">
     <div class="container text-center">
         <div class="call-to-action">
-            <h2>LAB RESULTS</h2>
+            <h2>{{ pageTitle | uppercase }}</h2>
             <a href="#about" class="btn btn-default btn-xl sr-button page-scroll">Back to top</a>
         </div>
     </div>

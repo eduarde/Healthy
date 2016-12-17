@@ -9,6 +9,7 @@ import { LabService } from './lab.service';
 })
 export class LabListComponent implements OnInit {
 
+    pageTitle: string = "Labs";
     listRefNumberFilter: string;
     listDateFilter: Date;    
     datepickerOpts = {

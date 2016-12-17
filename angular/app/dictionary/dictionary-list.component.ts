@@ -8,7 +8,8 @@ import { DictionaryService } from './dictionary.service';
     templateUrl: 'dictionary-list.component.html'
 })
 export class DictionaryListComponent implements OnInit {
-    pageTitle: string = "Dictionaries";
+
+    pageTitle: string = "Dictionary";
     listFilter: string;
     errorMessage: string;
     dictionaries: IDictionary[];
@@ -17,9 +18,9 @@ export class DictionaryListComponent implements OnInit {
 
     }
 
-    ngOnInit() : void {
+    ngOnInit(): void {
         this._dictionaryService.getDictionaries()
             .subscribe(dictionaries => this.dictionaries = dictionaries,
-                        error => this.errorMessage = <any>error );
+            error => this.errorMessage = <any>error);
     }
 }
