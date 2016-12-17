@@ -1,0 +1,74 @@
+<div role="main" class="container">
+
+    <br><br>
+
+    <div class='row'>
+        <div class='col-md-4'>
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon text-primary" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+                <input type="text" [(ngModel)]='listRefNumberFilter' class="form-control" placeholder="Search" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class='col-md-4'>
+            <div class="input-group date" data-provide="datepicker">
+            <input type="text" class="form-control">
+            <div class="input-group-addon">
+            <span class="glyphicon glyphicon-th"></span>
+    </div>
+</div>
+        </div>
+
+    </div>
+
+    <div class="btn-group" role="group" aria-label="...">
+        <a type="button" href="#" class="btn btn-danger actionAdd" title="Add new lab"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD NEW RESULT</a>
+    </div>
+    <br><br>
+
+    <div class="list-group">
+        <div class="lab" *ngFor='let lab of labs | labRefNumberFilter: listRefNumberFilter'>
+            <a href="#" class="list-group-item default">
+                <h4 class="list-group-item-heading">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-md-4"><i class="fa fa-heartbeat fa-1x text-primary sr-contact"></i> {{ lab.ref_number }} </div>
+                            <div class="col-md-4"><i class="fa fa-calendar fa-1x sr-contact"></i> {{ lab.date }} </div>
+                            <div class="col-md-4"><span class="glyphicon glyphicon-warning-sign text-primary" *ngIf='lab.abnormal_lab'></span></div>
+
+                        </div>
+                        <hr>
+                        <div class="list-group-item-text">
+                            <div class="row">
+
+                                <div class="col-md-4"><strong>Age </strong> {{ lab.user_age_lab }}</div>
+                                <div class="col-md-4"><strong>Doctor </strong> {{ lab.doctor }}</div>
+                                <div class="col-md-4"><strong>Collection point </strong> {{ lab.collection_point }}</div>
+
+                            </div>
+                        </div>
+                    </div>
+                </h4>
+            </a>
+
+        </div>
+    </div>
+
+    <br />
+    <div class="btn-group" role="group" aria-label="...">
+        <a type="button" href="#" class="btn btn-danger actionAdd" title="Add new lab"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD NEW RESULT</a>
+    </div>
+
+
+</div>
+
+
+<hr><br />
+<aside class="bg-dark">
+    <div class="container text-center">
+        <div class="call-to-action">
+            <h2>LAB RESULTS</h2>
+            <a href="#about" class="btn btn-default btn-xl sr-button page-scroll">Back to top</a>
+        </div>
+    </div>
+</aside>

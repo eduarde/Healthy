@@ -26,11 +26,12 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 
 class LabViewSet(viewsets.ModelViewSet):
 	serializer_class = LabSerializer
-	authentication_classes = (SessionAuthentication, BasicAuthentication)
-	permission_classes = (IsAuthenticated,)
+	#authentication_classes = (SessionAuthentication, BasicAuthentication)
+	#permission_classes = (IsAuthenticated,)
 
 	def get_queryset(self):
-		return Lab.objects.all().filter(user=self.request.user).order_by('-pk')
+		return Lab.objects
+	#	return Lab.objects.all().filter(user=self.request.user).order_by('-pk')
 
 
 

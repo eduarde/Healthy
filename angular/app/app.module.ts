@@ -7,7 +7,9 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent }  from './app.component';
 import { HomeComponent } from './home/home.component';
+
 import { DictionaryModule } from './dictionary/dictionary.module';
+import { LabModule } from './lab/lab.module';
 
 
 
@@ -21,7 +23,9 @@ import { DictionaryModule } from './dictionary/dictionary.module';
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', redirectTo: 'home', pathMatch: 'full' }
     ]),
-    DictionaryModule
+    DictionaryModule,
+    LabModule
+
   ],
  
 
