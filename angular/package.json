@@ -40,5 +40,8 @@
         "typescript": "^2.0.2",
         "typings": "^1.0.4"
     },
-    "repository": {}
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/eduarde/Healthy.git"
+    }
 }
