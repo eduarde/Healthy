@@ -197,7 +197,11 @@ class MarkerPredefined(models.Model):
 	)
 
 	CHILD_AGE_THRESHOLD = 12
+    
+	def constructName(self):
+    		return self.marker_ref.name + ' - ' + self.variant_gender + ' - ' +  str(self.variant_age)
 
+	name = property(constructName)
 	marker_ref = models.ForeignKey(Marker, related_name="Marker_MarkerPredefined_ref")
 	variant_gender =  models.CharField('Gender', max_length=10, choices=GENDER_CHOICES, default=NA)
 	variant_age = models.IntegerField('Age', blank=False,null=False,default=0)

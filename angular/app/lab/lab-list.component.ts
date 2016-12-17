@@ -31,4 +31,9 @@ export class LabListComponent implements OnInit {
             error => this.errorMessage = <any>error);
     }
 
+    deleteFilters(): void {
+        this.listDateFilter = null;
+        this.listRefNumberFilter = "";
+    }
+
 }

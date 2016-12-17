@@ -27,6 +27,16 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
 
 
+class LabNoteSerializer(serializers.ModelSerializer):
+    
+	class Meta:
+		model = LabNote
+		fields = ('comment','pub_date')
+
+
+
+
+
 class LabSerializer(serializers.ModelSerializer):
 	user = serializers.HiddenField(default=serializers.CurrentUserDefault())
 
@@ -44,28 +54,33 @@ class MarkerSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Marker
 		fields = ('name', 'abbr', 'category')
+		read_only_fields = ('abbr','category',)
+
+
+
+
+    	
+
+class MarkerPredefinedSerializer(serializers.ModelSerializer):
+    
+	class Meta:
+		model = MarkerPredefined
+		fields = ('name','threshold_min','threshold_max')
+		read_only_fields = ('threshold_min','threshold_max',)
 
 
 
 
 
-	
 class LabResultSerializer(serializers.ModelSerializer):
 
+	marker_ref = MarkerSerializer()
+	predefined_ref = MarkerPredefinedSerializer()
 
 	class Meta:
 		model = LabResult
 		fields = ( 'marker_ref', 'value','lab_ref','predefined_ref')
-
-
-
-
-
-class MarkerPredefinedSerializer(serializers.ModelSerializer):
-
-	class Meta:
-		model = MarkerPredefined
-
+	
 
 
 
@@ -82,8 +97,5 @@ class DictionarySerializer(serializers.ModelSerializer):
 
 
 
-class LabNoteSerializer(serializers.ModelSerializer):
 
-	class Meta:
-		model = LabNote
 

@@ -1,12 +1,15 @@
-<div role="main" class="container">
+<div role="main" class="container" id="pageTop">
 
     <br><br> <br><br>
 
     <div class='row'>
-        <div class='col-md-6'>
+        <div class='col-md-4'>
             <div class="btn-group" role="group" aria-label="...">
                 <a type="button" href="#" class="btn btn-danger actionAdd" title="Add new lab"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD NEW RESULT</a>
             </div>
+        </div>
+        <div class='col-md-2'>
+              <button class="btn btn-info" *ngIf='listRefNumberFilter || listDateFilter' (click)='deleteFilters()'><i class="fa fa-eraser "></i> Delete filters</button>
         </div>
         <div class='col-md-4'>
             <div class="input-group input-group">
