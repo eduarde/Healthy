@@ -50,8 +50,8 @@ class DictionaryViewSet(viewsets.ModelViewSet):
 
 class LabResultViewSet(viewsets.ModelViewSet):
 	serializer_class = LabResultSerializer
-	authentication_classes = (SessionAuthentication, BasicAuthentication)
-	permission_classes = (IsAuthenticated,)
+	# authentication_classes = (SessionAuthentication, BasicAuthentication)
+	# permission_classes = (IsAuthenticated,)
 
 	def perform_create(self,serializer):
 

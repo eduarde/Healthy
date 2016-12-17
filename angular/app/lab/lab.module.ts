@@ -6,20 +6,21 @@ import { NKDatetimeModule } from 'ng2-datetime/ng2-datetime';
 
 
 import { LabListComponent } from './lab-list.component';
-import { LabDetailComponent } from './lab-detaiil.component';
+import { LabDetailComponent } from './lab-detail.component';
 import { LabService } from './lab.service';
 
 import { LabRefNumberFilter } from './lab-ref_number.filter.pipe';
 import { LabDateFilter } from './lab-date.filter.pipe';
 
 import { LabDetailGuard } from './lab-guard.service';
-
+import {LabResultsListComponent} from '../labresults/labresults-list.component';
 
 
 @NgModule({
     declarations: [
         LabListComponent,
         LabDetailComponent,
+        LabResultsListComponent,
         LabRefNumberFilter,
         LabDateFilter
     ],

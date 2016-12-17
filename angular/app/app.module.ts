@@ -12,7 +12,6 @@ import { DictionaryModule } from './dictionary/dictionary.module';
 import { LabModule } from './lab/lab.module';
 
 
-
 @NgModule({
   imports: [ 
     BrowserModule,

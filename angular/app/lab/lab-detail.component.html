@@ -1,1 +1,56 @@
-<h1>{{pageTitle}}</h1>
+<div role="main" class="container" id="pageTop">
+
+    <br /><br />
+    <div id="results" *ngIf='lab'>
+        <div id="title">
+            <div class="container">
+                <div id="labtitle" class="row">
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <h2 class="section-heading"><small>Lab Result </small> {{ lab.ref_number }}
+                            <i class="fa fa-calendar fa-2x sr-contact"></i> <small>{{ lab.date }} </small></h2>
+                        <br />
+                        <hr class="primary">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <h4>
+                    <div class="col-md-4"><strong>First Name</strong> [firstName] </div>
+                    <div class="col-md-4"><strong>Last Name</strong> [lastName] </div>
+                    <div class="col-md-4"><strong>Age</strong> {{ lab.user_age_lab }}</div>
+                </h4>
+            </div>
+
+            <div class="row">
+                <h4>
+                    <div class="col-md-4"><strong>Patient Code</strong> {{ lab.patient_code }}</div>
+                    <div class="col-md-4"><strong>Doctor</strong> {{ lab.doctor }}</div>
+                    <div class="col-md-4"><strong>Collection Point</strong> {{ lab.collection_point }}</div>
+                </h4>
+            </div>
+
+        </div>
+
+        <br /><br />
+        <hr>
+        <br />
+
+        <lab-results></lab-results>
+
+
+    </div>
+</div>
+
+
+    <hr><br />
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+                <h2>{{ pageTitle | uppercase }}</h2>
+                <a href="#about" class="btn btn-default btn-xl sr-button page-scroll">Back to top</a>
+            </div>
+        </div>
+    </aside>
