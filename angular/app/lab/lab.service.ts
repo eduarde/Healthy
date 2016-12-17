@@ -17,6 +17,7 @@ export class LabService {
     getLabs(): Observable<ILab[]> {
         return this._http.get(this._labsUrl)
             .map((response: Response) => <ILab[]>response.json())
+            .do(data => console.log('All: ' + JSON.stringify(data)))
             ._catch(this.handleError);
 
     }

@@ -1,39 +1,37 @@
 <div role="main" class="container">
 
-    <br><br>
+    <br><br> <br><br>
 
     <div class='row'>
-        <div class='col-md-4'>
-            <div class="input-group input-group-lg">
-                <span class="input-group-addon text-primary" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
-                <input type="text" [(ngModel)]='listRefNumberFilter' class="form-control" placeholder="Search" aria-describedby="basic-addon1">
+        <div class='col-md-6'>
+            <div class="btn-group" role="group" aria-label="...">
+                <a type="button" href="#" class="btn btn-danger actionAdd" title="Add new lab"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD NEW RESULT</a>
             </div>
         </div>
         <div class='col-md-4'>
-            <div class="input-group date" data-provide="datepicker">
-            <input type="text" class="form-control">
-            <div class="input-group-addon">
-            <span class="glyphicon glyphicon-th"></span>
-    </div>
-</div>
+            <div class="input-group input-group">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+                <input type="text" [(ngModel)]='listRefNumberFilter' class="form-control" placeholder="Search" aria-describedby="basic-addon1">
+            </div>
         </div>
-
+        <div class='col-md-2'>
+            <datetime [timepicker]="false" [datepicker]="datepickerOpts" [(ngModel)]="listDateFilter"></datetime>
+        </div>
     </div>
 
-    <div class="btn-group" role="group" aria-label="...">
-        <a type="button" href="#" class="btn btn-danger actionAdd" title="Add new lab"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD NEW RESULT</a>
-    </div>
-    <br><br>
+
+
+    <br><br><br>
 
     <div class="list-group">
-        <div class="lab" *ngFor='let lab of labs | labRefNumberFilter: listRefNumberFilter'>
+        <div class="lab" *ngFor='let lab of labs | labRefNumberFilter: listRefNumberFilter | labDateFilter: listDateFilter'>
             <a href="#" class="list-group-item default">
                 <h4 class="list-group-item-heading">
                     <div class="container">
                         <div class="row">
 
                             <div class="col-md-4"><i class="fa fa-heartbeat fa-1x text-primary sr-contact"></i> {{ lab.ref_number }} </div>
-                            <div class="col-md-4"><i class="fa fa-calendar fa-1x sr-contact"></i> {{ lab.date }} </div>
+                            <div class="col-md-4"><i class="fa fa-calendar fa-1x sr-contact"></i> {{ lab.date | date:"mediumDate" }} </div>
                             <div class="col-md-4"><span class="glyphicon glyphicon-warning-sign text-primary" *ngIf='lab.abnormal_lab'></span></div>
 
                         </div>

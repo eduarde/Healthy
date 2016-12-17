@@ -1,6 +1,6 @@
 export interface ILab {
     pk: number;
-    date: string;
+    date: Date;
     ref_number: number;
     doctor: string;
     collection_point: string;

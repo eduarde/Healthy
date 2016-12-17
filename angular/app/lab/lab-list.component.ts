@@ -10,6 +10,16 @@ import { LabService } from './lab.service';
 export class LabListComponent implements OnInit {
 
     listRefNumberFilter: string;
+    listDateFilter: Date;    
+    datepickerOpts = {
+        autoclose: true,
+        todayBtn: 'linked',
+        todayHighlight: true,
+        assumeNearbyYear: true,
+        format: 'yyyy-mm-dd',
+        icon: 'fa fa-calendar'
+    }
+
     errorMessage: string;
     labs: ILab[];
 

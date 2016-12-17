@@ -24,7 +24,9 @@
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
 
       // other libraries
-      'rxjs': 'npm:rxjs'
+      'rxjs': 'npm:rxjs',
+      'jquery': 'npm:jquery/dist/',
+      'ng2-datetime': 'npm:ng2-datetime'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -34,7 +36,12 @@
       },
       rxjs: {
         defaultExtension: 'js'
+      },
+      'ng2-datetime': {
+        main: 'ng2-datetime.js',
+        defaultExtension: 'js'
       }
+     
     }
   });
 })(this);
