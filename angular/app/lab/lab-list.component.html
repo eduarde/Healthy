@@ -46,13 +46,30 @@
     <div class="list-group">
         <div class="lab" *ngFor='let lab of labs | labRefNumberFilter: listRefNumberFilter | labDateFilter: listDateFilter | labAbnormalFilter: listAbnormalFilter'>
             <a [routerLink]="['/lab', lab.pk]" class="list-group-item default">
+                <span class="badge">
+                    <div class="btn-group">
+                        <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-ellipsis-h fa-1x" aria-hidden="true"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>Action</li>
+                            <li>Another action</li>
+                            <li>Something else here</li>
+                            <li role="separator" class="divider"></li>
+                            <li>Separated link</li>
+                        </ul>
+                    </div>
+                 </span><br />
                 <h4 class="list-group-item-heading">
                     <div class="container">
                         <div class="row">
 
                             <div class="col-md-4"><i class="fa fa-heartbeat fa-1x text-primary sr-contact"></i> {{ lab.ref_number }} </div>
                             <div class="col-md-4"><i class="fa fa-calendar fa-1x sr-contact"></i> {{ lab.date | date:"mediumDate" }} </div>
-                            <div class="col-md-4"><span class="glyphicon glyphicon-warning-sign text-primary" *ngIf='lab.abnormal_lab'></span></div>
+                            <div class="col-md-2"><span class="glyphicon glyphicon-warning-sign text-primary" *ngIf='lab.abnormal_lab'></span></div>
+                            <div class="col-md-2">
+
+                            </div>
 
                         </div>
                         <hr>
@@ -67,6 +84,7 @@
                         </div>
                     </div>
                 </h4>
+
             </a>
 
         </div>
