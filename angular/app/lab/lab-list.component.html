@@ -1,25 +1,42 @@
 <div role="main" class="container" id="pageTop">
 
     <br><br> <br><br>
+    <div class="well">
+        <div class='row'>
+            <div class='col-md-4'>
+                <div class="btn-group" role="group" aria-label="...">
+                    <a type="button" href="#" class="btn btn-danger actionAdd" title="Add new lab"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD NEW RESULT</a>
+                </div>
+            </div>
+            <div class='col-md-2'>
+                <button class="btn btn-info" *ngIf='listRefNumberFilter || listDateFilter || listAbnormalFilter' (click)='deleteFilters()'><i class="fa fa-eraser "></i> Delete filters</button>
+            </div>
 
-    <div class='row'>
-        <div class='col-md-4'>
-            <div class="btn-group" role="group" aria-label="...">
-                <a type="button" href="#" class="btn btn-danger actionAdd" title="Add new lab"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD NEW RESULT</a>
+
+
+            <div class='col-md-2'>
+                <div class="input-group input-group">
+                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+                    <input type="text" [(ngModel)]='listRefNumberFilter' class="form-control" placeholder="Search" aria-describedby="basic-addon1">
+                </div>
             </div>
-        </div>
-        <div class='col-md-2'>
-              <button class="btn btn-info" *ngIf='listRefNumberFilter || listDateFilter' (click)='deleteFilters()'><i class="fa fa-eraser "></i> Delete filters</button>
-        </div>
-        <div class='col-md-4'>
-            <div class="input-group input-group">
-                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
-                <input type="text" [(ngModel)]='listRefNumberFilter' class="form-control" placeholder="Search" aria-describedby="basic-addon1">
+
+            <div class='col-md-2'>
+                <div class="input-group">
+                    <span class="input-group-addon">
+                    <input type="checkbox" [(ngModel)]='listAbnormalFilter'>
+                </span>
+                    <input type="text" class="form-control" value="Abnormal" disabled="True">
+                </div>
+                <!-- /input-group -->
             </div>
+
+            <div class='col-md-2'>
+                <datetime [timepicker]="false" [datepicker]="datepickerOpts" [(ngModel)]="listDateFilter"></datetime>
+            </div>
+
         </div>
-        <div class='col-md-2'>
-            <datetime [timepicker]="false" [datepicker]="datepickerOpts" [(ngModel)]="listDateFilter"></datetime>
-        </div>
+
     </div>
 
 
@@ -27,7 +44,7 @@
     <br><br><br>
 
     <div class="list-group">
-        <div class="lab" *ngFor='let lab of labs | labRefNumberFilter: listRefNumberFilter | labDateFilter: listDateFilter'>
+        <div class="lab" *ngFor='let lab of labs | labRefNumberFilter: listRefNumberFilter | labDateFilter: listDateFilter | labAbnormalFilter: listAbnormalFilter'>
             <a [routerLink]="['/lab', lab.pk]" class="list-group-item default">
                 <h4 class="list-group-item-heading">
                     <div class="container">
@@ -54,10 +71,11 @@
 
         </div>
     </div>
-
-    <br />
-    <div class="btn-group" role="group" aria-label="...">
-        <a type="button" href="#" class="btn btn-danger actionAdd" title="Add new lab"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD NEW RESULT</a>
+    <br><br><br>
+    <div class="well">
+        <div class="btn-group" role="group" aria-label="...">
+            <a type="button" href="#" class="btn btn-danger actionAdd" title="Add new lab"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ADD NEW RESULT</a>
+        </div>
     </div>
 
 

@@ -10,8 +10,12 @@ import { LabService } from './lab.service';
 export class LabListComponent implements OnInit {
 
     pageTitle: string = "Labs";
+    
     listRefNumberFilter: string;
-    listDateFilter: Date;    
+    listDateFilter: Date;
+    listAbnormalFilter: boolean = false;
+
+
     datepickerOpts = {
         autoclose: true,
         todayBtn: 'linked',
@@ -35,6 +39,7 @@ export class LabListComponent implements OnInit {
     deleteFilters(): void {
         this.listDateFilter = null;
         this.listRefNumberFilter = "";
+        this.listAbnormalFilter = false;
     }
 
 }

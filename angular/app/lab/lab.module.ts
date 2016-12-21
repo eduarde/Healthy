@@ -11,6 +11,7 @@ import { LabService } from './lab.service';
 
 import { LabRefNumberFilter } from './lab-ref_number.filter.pipe';
 import { LabDateFilter } from './lab-date.filter.pipe';
+import { LabAbnormalFilter } from './lab-abnormal.filter.pipe';
 
 import { LabDetailGuard } from './lab-guard.service';
 import {LabResultsListComponent} from '../labresults/labresults-list.component';
@@ -22,7 +23,8 @@ import {LabResultsListComponent} from '../labresults/labresults-list.component';
         LabDetailComponent,
         LabResultsListComponent,
         LabRefNumberFilter,
-        LabDateFilter
+        LabDateFilter,
+        LabAbnormalFilter
     ],
 
     imports: [
