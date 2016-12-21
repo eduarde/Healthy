@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { ILab } from './lab';
+import { ILab } from '../lab';
 
 @Pipe({
     name: 'labAbnormalFilter'
