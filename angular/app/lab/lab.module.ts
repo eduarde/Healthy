@@ -9,9 +9,9 @@ import { LabListComponent } from './lab-list.component';
 import { LabDetailComponent } from './lab-detail.component';
 import { LabService } from './lab.service';
 
-import { LabRefNumberFilter } from './lab-ref_number.filter.pipe';
-import { LabDateFilter } from './lab-date.filter.pipe';
-import { LabAbnormalFilter } from './lab-abnormal.filter.pipe';
+import { LabRefNumberFilter } from './filters/lab-ref_number.filter.pipe';
+import { LabDateFilter } from './filters/lab-date.filter.pipe';
+import { LabAbnormalFilter } from './filters/lab-abnormal.filter.pipe';
 
 import { LabDetailGuard } from './lab-guard.service';
 import {LabResultsListComponent} from '../labresults/labresults-list.component';
