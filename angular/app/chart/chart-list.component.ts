@@ -11,8 +11,10 @@ export class ChartListComponent {
     pageTitle: string = 'Trends';
     chartTitle: string = 'Leucocite';
 
-    max_t = [35, 28, 50, 70, 93, 78];
-    value = [30, 35, 43, 68, 80, 74];
-    min_t = [ 29, 11, 40, 63, 65, 61 ];
+    max_t = [35, 35, 35, 35, 36, 36, 37,37,37];
+    value = [30, 35, 43, 68, 40, 34, 40, 39, 36];
+    min_t = [ 29, 29, 29, 29, 30, 30, 31, 31, 31 ];
+
+
 
 }
