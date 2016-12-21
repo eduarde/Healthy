@@ -26,7 +26,9 @@
       // other libraries
       'rxjs': 'npm:rxjs',
       'jquery': 'npm:jquery/dist/',
-      'ng2-datetime': 'npm:ng2-datetime'
+      'ng2-datetime': 'npm:ng2-datetime',
+
+      'vaadin-charts': 'bower_components/vaadin-charts/directives'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -40,7 +42,8 @@
       'ng2-datetime': {
         main: 'ng2-datetime.js',
         defaultExtension: 'js'
-      }
+      },
+      'vaadin-charts': { main: 'vaadin-charts.js', defaultExtension: 'js' } 
      
     }
   });

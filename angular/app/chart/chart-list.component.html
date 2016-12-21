@@ -1,0 +1,33 @@
+<div role="main" class="container">
+
+
+<br /><Br />
+
+   <vaadin-areaspline-chart >
+      <chart-title> chartTitle </chart-title>
+      <subtitle>Last six months</subtitle>
+      <legend layout="vertical" align="left" vertical-align="top" x="150" y="100" floating="true"></legend>
+      <tooltip shared="true" value-suffix="t"></tooltip>
+      <x-axis>
+        <categories>2011, 2012, 2013, 2014, 2015, 2016</categories>
+      </x-axis>
+      <y-axis>
+        <chart-title>Metric tons</chart-title>
+      </y-axis>
+      <data-series name="Max Threshold" [data]="max_t"></data-series>
+      <data-series name="Value" [data]="value"></data-series>
+    <data-series name="Min Threshold" [data]="min_t"></data-series>
+  </vaadin-areaspline-chart>
+  
+</div>
+
+
+<hr><br />
+<aside class="bg-dark">
+    <div class="container text-center">
+        <div class="call-to-action">
+            <h2>{{pageTitle | uppercase}}</h2>
+            <a href="#about" class="btn btn-default btn-xl sr-button page-scroll">Back to top</a>
+        </div>
+    </div>
+</aside>

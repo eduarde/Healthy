@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 
 import { DictionaryModule } from './dictionary/dictionary.module';
 import { LabModule } from './lab/lab.module';
+import { ChartModule } from './chart/chart.module';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { LabModule } from './lab/lab.module';
       { path: '**', redirectTo: 'home', pathMatch: 'full' }
     ]),
     DictionaryModule,
-    LabModule
+    LabModule,
+    ChartModule
 
   ],
  

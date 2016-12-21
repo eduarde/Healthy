@@ -27,7 +27,7 @@ export class LabService {
             .map((labs: ILab[]) => labs.find(l => l.pk === id));
     }*/
 
-     getLab(id: number): Observable<ILab> {
+  getLab(id: number): Observable<ILab> {
         let lab_url =  this._labsUrl + id.toString() + '/';
         return this._http.get(lab_url)
             .map((response: Response) => <ILab>response.json())
