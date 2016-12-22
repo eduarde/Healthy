@@ -42,6 +42,6 @@ export class LabDetailComponent implements OnInit, OnDestroy {
 
     getLab(id: number) {
         this._labService.getLab(id).
-        subscribe(lab => this.lab = lab, error => this.errorMessage = <any>error);
+            subscribe(lab => this.lab = lab, error => this.errorMessage = <any>error);
     }
 }

@@ -22,16 +22,16 @@ export class LabService {
 
     }
 
-   /* getLab(id: number): Observable<ILab> {
-        return this.getLabs()
-            .map((labs: ILab[]) => labs.find(l => l.pk === id));
-    }*/
+    /* getLab(id: number): Observable<ILab> {
+         return this.getLabs()
+             .map((labs: ILab[]) => labs.find(l => l.pk === id));
+     }*/
 
-  getLab(id: number): Observable<ILab> {
-        let lab_url =  this._labsUrl + id.toString() + '/';
+    getLab(id: number): Observable<ILab> {
+        let lab_url = this._labsUrl + id.toString() + '/';
         return this._http.get(lab_url)
             .map((response: Response) => <ILab>response.json())
-             .do(data => console.log('All: ' + JSON.stringify(data)))
+            .do(data => console.log('All: ' + JSON.stringify(data)))
             ._catch(this.handleError);
     }
 
@@ -39,5 +39,5 @@ export class LabService {
         console.error(error);
         return Observable.throw(error.json().error || 'Server error');
     }
-    
+
 }

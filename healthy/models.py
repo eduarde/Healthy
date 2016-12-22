@@ -233,6 +233,8 @@ class LabResult(models.Model):
 
 		return False 
 
+	abnormal_result = property(is_abnormal)
+
 	def __str__(self):
 		return 'LabResult ' + '#' + str(self.pk) + ' ' + self.marker_ref.name + ' -- ' + str(self.lab_ref)
 

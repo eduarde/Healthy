@@ -14,8 +14,8 @@ import { LabDateFilter } from './filters/lab-date.filter.pipe';
 import { LabAbnormalFilter } from './filters/lab-abnormal.filter.pipe';
 
 import { LabDetailGuard } from './lab-guard.service';
-import {LabResultsListComponent} from '../labresults/labresults-list.component';
-
+import { LabResultsListComponent } from '../labresults/labresults-list.component';
+import { LabResultService } from '../labresults/labresults.service';
 
 @NgModule({
     declarations: [
@@ -24,7 +24,7 @@ import {LabResultsListComponent} from '../labresults/labresults-list.component';
         LabResultsListComponent,
         LabRefNumberFilter,
         LabDateFilter,
-        LabAbnormalFilter
+        LabAbnormalFilter,
     ],
 
     imports: [
@@ -43,6 +43,7 @@ import {LabResultsListComponent} from '../labresults/labresults-list.component';
 
     providers: [
         LabService,
+        LabResultService,
         LabDetailGuard
     ]
 })

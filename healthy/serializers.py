@@ -53,8 +53,8 @@ class MarkerSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = Marker
-		fields = ('name', 'abbr', 'category')
-		read_only_fields = ('abbr','category',)
+		fields = ('name', 'abbr', 'category','um')
+		read_only_fields = ('abbr','category','um')
 
 
 
@@ -79,7 +79,7 @@ class LabResultSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = LabResult
-		fields = ( 'marker_ref', 'value','lab_ref','predefined_ref')
+		fields = ( 'marker_ref', 'value','lab_ref','predefined_ref','abnormal_result')
 	
 
 

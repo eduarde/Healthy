@@ -16,17 +16,17 @@
         </thead>
         <tbody>
 
-            <tr>
+            <tr *ngFor='let result of results'>
                 <td><a class="viewDictionary" rel="tooltip" data-placement="top" title="Details" data-toggle="modal" id="close"
                         data-target="#modal" href="#"><i class="fa fa-book fa-1x  text-primary" aria-hidden="true"></i></a></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{result.marker_ref.name }}</td>
+                <td>{{result.marker_ref.category }}</td>
+                <td>{{result.marker_ref.abbr }}</td>
+                <td>{{result.marker_ref.um }}</td>
+                <td>{{result.value }}</td>
+                <td>{{result.predefined_ref.threshold_min }}</td>
+                <td>{{result.predefined_ref.threshold_max }}</td>
+                <td><span class="glyphicon glyphicon-warning-sign text-primary" *ngIf='result.abnormal_result'></span></td>
 
             </tr>
 
