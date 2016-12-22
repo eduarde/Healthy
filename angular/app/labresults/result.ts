@@ -6,4 +6,5 @@ export interface IResult {
     value: number;
     lab_ref: number;
     predefined_red: IMarkerPredefined;
+    abnormal_result: boolean;
 }

@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NKDatetimeModule } from 'ng2-datetime/ng2-datetime';
-
+import { LabResultModule } from '../labresults/labresult.module';
 
 import { LabListComponent } from './lab-list.component';
 import { LabDetailComponent } from './lab-detail.component';
@@ -14,21 +14,12 @@ import { LabDateFilter } from './filters/lab-date.filter.pipe';
 import { LabAbnormalFilter } from './filters/lab-abnormal.filter.pipe';
 
 import { LabDetailGuard } from './lab-guard.service';
-import { LabResultsListComponent } from '../labresults/labresults-list.component';
-import { LabResultService } from '../labresults/labresults.service';
+
 
 @NgModule({
-    declarations: [
-        LabListComponent,
-        LabDetailComponent,
-        LabResultsListComponent,
-        LabRefNumberFilter,
-        LabDateFilter,
-        LabAbnormalFilter,
-    ],
-
     imports: [
         NKDatetimeModule,
+        LabResultModule,
         RouterModule.forChild([
             { path: 'labs', component: LabListComponent },
             {
@@ -41,9 +32,18 @@ import { LabResultService } from '../labresults/labresults.service';
         FormsModule
     ],
 
+    declarations: [
+        LabListComponent,
+        LabDetailComponent,
+        LabRefNumberFilter,
+        LabDateFilter,
+        LabAbnormalFilter,
+    ],
+
+
+
     providers: [
         LabService,
-        LabResultService,
         LabDetailGuard
     ]
 })

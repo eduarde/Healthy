@@ -14,6 +14,8 @@ export class LabResultsListComponent implements OnInit, OnDestroy {
 
     results: IResult[];
     errorMessage: string;
+    filterMarkerName: string;
+    filterAbnormal: boolean;
 
     private sub: Subscription;
 
@@ -39,6 +41,12 @@ export class LabResultsListComponent implements OnInit, OnDestroy {
     getResults(id: number) {
         this._labResultService.getResults(id).
             subscribe(results => this.results = results, error => this.errorMessage = <any>error);
+    }
+
+    deleteFilters(): void {
+
+        this.filterMarkerName = "";
+        this.filterAbnormal = false;
     }
 
 

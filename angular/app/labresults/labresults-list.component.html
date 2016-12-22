@@ -1,41 +1,89 @@
-<div class="table-responsive">
-    <table class="table  table-striped">
-        <thead>
-            <tr>
-                <th></th>
-                <th>Marker</th>
-                <th>Category</th>
-                <th>Abbreviation</th>
-                <th>UM</th>
-                <th>Value</th>
-                <th>Min Value</th>
-                <th>Max Value</th>
-                <th></th>
+<div class="well">
+    <div class='row'>
+        <div class='col-md-2'>
+            <div class="btn-group" role="group" aria-label="...">
+                <a type="button" href="#" class="btn btn-danger" title="Add new marker"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add marker</a>
+            </div>
+        </div>
 
-            </tr>
-        </thead>
-        <tbody>
+        <div class='col-md-2'>
+            <div class="btn-group">
+                        <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-cog" aria-hidden="true"></i>  OPTIONS
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>Action</li>
+                            <li>Another action</li>
+                            <li>Something else here</li>
+                            <li role="separator" class="divider"></li>
+                            <li>Separated link</li>
+                        </ul>
+                    </div>
+        </div>
 
-            <tr *ngFor='let result of results'>
-                <td><a class="viewDictionary" rel="tooltip" data-placement="top" title="Details" data-toggle="modal" id="close"
-                        data-target="#modal" href="#"><i class="fa fa-book fa-1x  text-primary" aria-hidden="true"></i></a></td>
-                <td>{{result.marker_ref.name }}</td>
-                <td>{{result.marker_ref.category }}</td>
-                <td>{{result.marker_ref.abbr }}</td>
-                <td>{{result.marker_ref.um }}</td>
-                <td>{{result.value }}</td>
-                <td>{{result.predefined_ref.threshold_min }}</td>
-                <td>{{result.predefined_ref.threshold_max }}</td>
-                <td><span class="glyphicon glyphicon-warning-sign text-primary" *ngIf='result.abnormal_result'></span></td>
+        <div class='col-md-2'>
+            <button class="btn btn-info" *ngIf='filterAbnormal || filterMarkerName' (click)='deleteFilters()'><i class="fa fa-eraser "></i> Delete filters</button>
+        </div>
+        
+        <div class='col-md-4'>
+            <div class="input-group input-group">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+                <input type="text" [(ngModel)]='filterMarkerName' class="form-control" placeholder="Marker" aria-describedby="basic-addon1">
+            </div>
+        </div>
 
-            </tr>
+        <div class='col-md-2'>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <input type="checkbox" [(ngModel)]='filterAbnormal'>
+                </span>
+                <input type="text" class="form-control" value="Abnormal" disabled="True">
+            </div>
+            <!-- /input-group -->
+        </div>
 
-        </tbody>
-    </table>
+
+    </div>
+
+
+
+    <br>
+    <br>
+
+    <div class="table-responsive">
+        <table class="table  table-striped">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Marker</th>
+                    <th>Category</th>
+                    <th>Abbreviation</th>
+                    <th>UM</th>
+                    <th>Value</th>
+                    <th>Min Value</th>
+                    <th>Max Value</th>
+                    <th></th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr *ngFor='let result of results | labResultAbnormalFilter: filterAbnormal | labResultMarkerNameFilter: filterMarkerName '>
+                    <td><a class="viewDictionary" rel="tooltip" data-placement="top" title="Details" data-toggle="modal" id="close"
+                            data-target="#modal" href="#"><i class="fa fa-book fa-1x  text-primary" aria-hidden="true"></i></a></td>
+                    <td>{{result.marker_ref.name }}</td>
+                    <td>{{result.marker_ref.category }}</td>
+                    <td>{{result.marker_ref.abbr }}</td>
+                    <td>{{result.marker_ref.um }}</td>
+                    <td>{{result.value }}</td>
+                    <td>{{result.predefined_ref.threshold_min }}</td>
+                    <td>{{result.predefined_ref.threshold_max }}</td>
+                    <td><span class="glyphicon glyphicon-warning-sign text-primary" *ngIf='result.abnormal_result'></span></td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
 </div>
 <br /> <br />
-
-
-<button class="btn btn-danger actionViewResults" rel="tooltip" data-placement="top" title="Add a result">
-<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add marker
-</button>
