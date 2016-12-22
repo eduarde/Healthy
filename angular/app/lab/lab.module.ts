@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NKDatetimeModule } from 'ng2-datetime/ng2-datetime';
 import { LabResultModule } from '../labresults/labresult.module';
+import { NoteModule } from '../notes/note.module';
 
 import { LabListComponent } from './lab-list.component';
 import { LabDetailComponent } from './lab-detail.component';
@@ -20,6 +21,7 @@ import { LabDetailGuard } from './lab-guard.service';
     imports: [
         NKDatetimeModule,
         LabResultModule,
+        NoteModule,
         RouterModule.forChild([
             { path: 'labs', component: LabListComponent },
             {

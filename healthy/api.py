@@ -46,8 +46,7 @@ class DictionaryViewSet(viewsets.ModelViewSet):
 
 
 
-
-
+    	
 class LabResultViewSet(viewsets.ModelViewSet):
 	serializer_class = LabResultSerializer
 	# authentication_classes = (SessionAuthentication, BasicAuthentication)
@@ -90,6 +89,22 @@ class LabResultViewSet(viewsets.ModelViewSet):
 	def get_queryset(self):
 		return LabResult.objects.all().filter(lab_ref=self.get_lab())
 
+
+
+
+
+class NoteViewSet(viewsets.ModelViewSet):
+	serializer_class = LabNoteSerializer
+
+	def perform_create(self, serializer):
+    		serializer.save(lab_ref=self.get_lab())
+
+
+	def get_lab(self):
+		return get_object_or_404(Lab, pk=self.kwargs.get("lab"))
+
+	def get_queryset(self):
+		return LabNote.objects.all().filter(lab_ref=self.get_lab())
 
 
 
