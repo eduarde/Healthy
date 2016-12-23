@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import  Lab, UserProfile, LabResult, Marker, MarkerPredefined
+from .models import  Lab, UserProfile, LabResult, Marker, MarkerPredefined, LabNote
 from django.contrib.auth.models import User
 
 from datetime import datetime, date
@@ -116,4 +116,7 @@ class MarkerPredefinedTestCase(TestCase):
 		self.assertEqual(int(self.marker_pred_age.variant_age),30)
 		self.assertTrue(int(self.marker_pred_age.threshold_min) > 14 )
 		self.assertTrue(int(self.marker_pred_age.threshold_max) < 31 )
+
+
+
 

@@ -11,7 +11,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = User
-		fields = '__all__'
+		fields = ('username','first_name','last_name')
 
 
 
@@ -21,7 +21,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
 	
 	class Meta:
 		model = UserProfile
-		fields = '__all__'
+		fields = ('user','gender','dob','blood_type','url_gravatar')
 
 
 

@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.utils.timezone import now
 from datetime import date, timedelta
 
-
+from django_gravatar.helpers import get_gravatar_url
 
 
 
@@ -35,6 +35,12 @@ class UserProfile(models.Model):
 	gender = models.CharField(max_length=10, choices=GENDER_CHOICES, default=FEMALE)
 	dob = models.DateField('Date of birth',null=True)
 	blood_type = models.CharField(max_length=10, choices=BLOOD_TYPES, default=N)
+
+	def get_avatar(self):
+		email = self.user.email
+		return get_gravatar_url(email, size=150)
+
+	url_gravatar = property(get_avatar)
 
 	def __str__(self):
 		return 'UserProfile ' + self.user.username

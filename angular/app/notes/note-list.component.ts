@@ -16,7 +16,7 @@ export class NoteListComponent implements OnInit, OnDestroy {
 
     notes: INote[];
     errorMessage: string;
-
+   
     private sub: Subscription;
 
     constructor(private _noteService: NoteService,
@@ -31,12 +31,13 @@ export class NoteListComponent implements OnInit, OnDestroy {
                 let id = +params['id'];
                 this.getNotes(id);
             });
-
+    
     }
 
     ngOnDestroy(): void {
         this.sub.unsubscribe();
     }
+
 
     getNotes(id: number) {
         this._noteService.getNotes(id).

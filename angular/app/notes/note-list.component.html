@@ -10,7 +10,7 @@
                     <div class="comment" *ngFor='let note of notes'>
                         <!-- Comment Avatar -->
                         <div class="comment-avatar">
-                            <img src="http://gravatar.com/avatar/412c0b0ec99008245d902e6ed0b264ee?s=80">
+                            <img src="https://s.gravatar.com/avatar/3e64cc2eb07b75579a390dcf9540b169?s=80">
                         </div>
 
                         <!-- Comment Box -->
@@ -18,9 +18,7 @@
                             <div class="comment-text">{{ note.comment }}</div>
                             <div class="comment-footer">
                                 <div class="comment-info">
-                                    <span class="comment-author">
-              <a href="mailto:sexar@pagelab.io">Sexar</a>
-            </span>
+                                    <span class="comment-author">user</span>
                                     <span class="comment-date">{{ note.pub_date | date:"fullDate" }}</span>
                                 </div>
 
@@ -37,12 +35,12 @@
                 <div class="comment-form">
                     <!-- Comment Avatar -->
                     <div class="comment-avatar">
-                        <img src="http://lorempixel.com/200/200/people">
+                        <img src="https://s.gravatar.com/avatar/3e64cc2eb07b75579a390dcf9540b169?s=80">
                     </div>
 
                     <form class="form" name="form" novalidate>
                         <div class="form-row">
-                            <textarea class="input" ng-model="cmntCtrl.comment.text" placeholder="Add comment..." required></textarea>
+                            <textarea class="input" placeholder="Add comment..." required></textarea>
                         </div>
                         <div class="form-row">
                             <input class="btn btn-primary" type="submit" value="Add Comment">
