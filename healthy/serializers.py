@@ -27,15 +27,6 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
 
 
-class LabNoteSerializer(serializers.ModelSerializer):
-    
-	class Meta:
-		model = LabNote
-		fields = ('comment','pub_date')
-
-
-
-
 
 class LabSerializer(serializers.ModelSerializer):
 	user = serializers.HiddenField(default=serializers.CurrentUserDefault())
@@ -44,6 +35,15 @@ class LabSerializer(serializers.ModelSerializer):
 		model = Lab
 		fields = ('pk', 'user', 'date', 'ref_number', 'doctor', 'collection_point', 'patient_code', 'user_age_lab', 'abnormal_lab')
 
+
+
+
+
+class LabNoteSerializer(serializers.ModelSerializer):
+    	
+	class Meta:
+		model = LabNote
+		fields = ('comment','pub_date')
 
 
 

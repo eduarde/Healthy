@@ -1,51 +1,55 @@
-<div class="well">
-    <div class="comments-app">
+<aside class="bg-gray">
+    <div class="container">
+        <div class="call-to-action">
+            <div class="comments-app">
 
-        <!-- Comments List -->
-        <div class="comments">
+                <!-- Comments List -->
+                <div class="comments">
 
-            <!-- Comment - Dummy -->
-            <div class="comment" *ngFor='let note of notes'>
-                <!-- Comment Avatar -->
-                <div class="comment-avatar">
-                    <img src="http://gravatar.com/avatar/412c0b0ec99008245d902e6ed0b264ee?s=80">
-                </div>
+                    <!-- Comment - Dummy -->
+                    <div class="comment" *ngFor='let note of notes'>
+                        <!-- Comment Avatar -->
+                        <div class="comment-avatar">
+                            <img src="http://gravatar.com/avatar/412c0b0ec99008245d902e6ed0b264ee?s=80">
+                        </div>
 
-                <!-- Comment Box -->
-                <div class="comment-box">
-                    <div class="comment-text">{{ note.comment }}</div>
-                    <div class="comment-footer">
-                        <div class="comment-info">
-                            <span class="comment-author">
+                        <!-- Comment Box -->
+                        <div class="comment-box">
+                            <div class="comment-text">{{ note.comment }}</div>
+                            <div class="comment-footer">
+                                <div class="comment-info">
+                                    <span class="comment-author">
               <a href="mailto:sexar@pagelab.io">Sexar</a>
             </span>
-                            <span class="comment-date">{{ note.pub_date | date:"mediumDate" }}</span>
-                        </div>
+                                    <span class="comment-date">{{ note.pub_date | date:"fullDate" }}</span>
+                                </div>
 
-                        <div class="comment-actions">
-                            <a href="#">Delete</a>
+                                <div class="comment-actions">
+                                    <a href="#">Delete</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+                </div>
+
+                <!-- From -->
+                <div class="comment-form">
+                    <!-- Comment Avatar -->
+                    <div class="comment-avatar">
+                        <img src="http://lorempixel.com/200/200/people">
+                    </div>
+
+                    <form class="form" name="form" novalidate>
+                        <div class="form-row">
+                            <textarea class="input" ng-model="cmntCtrl.comment.text" placeholder="Add comment..." required></textarea>
+                        </div>
+                        <div class="form-row">
+                            <input class="btn btn-primary" type="submit" value="Add Comment">
+                        </div>
+                    </form>
                 </div>
             </div>
-
-        </div>
-
-          <!-- From -->
-        <div class="comment-form">
-            <!-- Comment Avatar -->
-            <div class="comment-avatar">
-                <img src="http://lorempixel.com/200/200/people">
-            </div>
-
-            <form class="form" name="form" novalidate>
-                <div class="form-row">
-                    <textarea class="input" ng-model="cmntCtrl.comment.text" placeholder="Add comment..." required></textarea>
-                </div>
-                <div class="form-row">
-                    <input type="submit" value="Add Comment">
-                </div>
-            </form>
         </div>
     </div>
-</div>
+</aside>
