@@ -1,0 +1,88 @@
+<div role="main" class="container" id="pageTop">
+
+    <br /><br />
+
+    <div class="well">
+
+        <br /><br /><br />
+
+        <div class="row">
+            <div class="col-lg-2"></div>
+
+            <div class="col-lg-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Reference Number" aria-describedby="basic-addon1">
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="input-group">
+                    <datetime [timepicker]="false" [datepicker]="datepickerOpts" [(ngModel)]="listDateFilter"></datetime>
+                </div>
+            </div>
+
+            <div class="col-lg-2"></div>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-lg-2"></div>
+
+            <div class="col-lg-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Doctor" aria-describedby="basic-addon1">
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Collection Point" aria-describedby="basic-addon1">
+                </div>
+            </div>
+
+            <div class="col-lg-2"></div>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-lg-2"></div>
+
+            <div class="col-lg-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Patient Code" aria-describedby="basic-addon1">
+                </div>
+            </div>
+
+            <div class="col-lg-6"></div>
+        </div>
+
+        <br /><br /><br />
+
+        <div class="row">
+            <div class="col-lg-2"></div>
+
+            <div class="col-lg-4">
+                <div class="btn-group" role="group" aria-label="...">
+                    <a type="button" class="btn btn-danger " title="Save"> Save </a>
+                    <a type="button" class="btn btn-default " title="Cancel"> Cancel </a>
+                </div>
+            </div>
+
+            <div class="col-lg-6"></div>
+        </div>
+
+    </div>
+
+</div>
+
+<br />
+<aside class="bg-dark">
+    <div class="container text-center">
+        <div class="call-to-action">
+            <h2>{{ pageTitle | uppercase }}</h2>
+            <a href="#about" class="btn btn-default btn-xl sr-button page-scroll">Back to top</a>
+        </div>
+    </div>
+</aside>

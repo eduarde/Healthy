@@ -8,6 +8,7 @@ import { NoteModule } from '../notes/note.module';
 
 import { LabListComponent } from './lab-list.component';
 import { LabDetailComponent } from './lab-detail.component';
+import { LabAddComponent } from './lab-add.component';
 import { LabService } from './lab.service';
 
 import { LabRefNumberFilter } from './filters/lab-ref_number.filter.pipe';
@@ -28,7 +29,8 @@ import { LabDetailGuard } from './lab-guard.service';
                 path: 'lab/:id',
                 canActivate: [LabDetailGuard],
                 component: LabDetailComponent
-            }
+            },
+            { path: 'addLab', component: LabAddComponent }
         ]),
         CommonModule,
         FormsModule
@@ -37,6 +39,7 @@ import { LabDetailGuard } from './lab-guard.service';
     declarations: [
         LabListComponent,
         LabDetailComponent,
+        LabAddComponent,
         LabRefNumberFilter,
         LabDateFilter,
         LabAbnormalFilter,
