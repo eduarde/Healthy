@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
@@ -32,6 +32,16 @@ export class LabService {
         return this._http.get(lab_url)
             .map((response: Response) => <ILab>response.json())
             .do(data => console.log('All: ' + JSON.stringify(data)))
+            ._catch(this.handleError);
+    }
+
+    addLab(lab: ILab) {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        let body = JSON.stringify(lab);
+
+        return this._http.post(this._labsUrl, body, headers)
+            .map((res: Response) => res.json())
             ._catch(this.handleError);
     }
 

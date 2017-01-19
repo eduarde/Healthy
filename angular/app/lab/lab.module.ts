@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NKDatetimeModule } from 'ng2-datetime/ng2-datetime';
 import { LabResultModule } from '../labresults/labresult.module';
 import { NoteModule } from '../notes/note.module';
@@ -33,7 +34,8 @@ import { LabDetailGuard } from './lab-guard.service';
             { path: 'addLab', component: LabAddComponent }
         ]),
         CommonModule,
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule
     ],
 
     declarations: [
