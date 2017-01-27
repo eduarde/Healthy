@@ -40,7 +40,7 @@ export class LabService {
         let options = new RequestOptions({ headers: headers });
         let body = JSON.stringify(lab);
 
-        return this._http.post(this._labsUrl, body, headers)
+        return this._http.post(this._labsUrl, body, options)
             .map((res: Response) => res.json())
             ._catch(this.handleError);
     }

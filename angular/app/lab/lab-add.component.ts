@@ -33,7 +33,7 @@ export class LabAddComponent {
 
     }
 
-    public saveLab(event) {
+    public saveLab() {
 
         let newLab : ILab = this.labForm.value;
         this._labService.addLab(newLab).subscribe(
@@ -43,7 +43,7 @@ export class LabAddComponent {
             }
         );
 
-        console.log(event);
+       // console.log(event);
         console.log(this.labForm.value);
     }
 }
